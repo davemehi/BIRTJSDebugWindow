@@ -8,6 +8,8 @@ importPackage(Packages.javax.swing);
  * to enable/disable the debug window
  ***************************************************/
 blnDisplayDebugWindow = true;
+GLOBAL_VARIABLE_NAME = "jfDebugWindow";
+JFRAME_WINDOW_NAME = "Debug Window";
 JTEXT_AREA_NUM_OF_ROWS = 20;
 JTEXT_AREA_NUM_OF_COLS = 100;
 JSCROLL_UNIT_INCREMENT = 5;
@@ -29,13 +31,13 @@ function logToDebugWindow(strMessage) {
 	if(!blnDisplayDebugWindow) { return; }
 	
 	// current JTextArea - global parameter
-	var currJTextArea = reportContext.getGlobalVariable("jfDebugWindow");
+	var currJTextArea = reportContext.getGlobalVariable(GLOBAL_VARIABLE_NAME);
 	
 	// if null, then create and store as global variable
 	if(currJTextArea == null) {
 		
 		// Create JFrame
-		var jFrame = new JFrame("Debug Window"); 
+		var jFrame = new JFrame(JFRAME_WINDOW_NAME); 
 		
 		// Create JTextArea - append message and new-line
 		var jTextArea = new JTextArea(JTEXT_AREA_NUM_OF_ROWS, JTEXT_AREA_NUM_OF_COLS);
@@ -58,7 +60,7 @@ function logToDebugWindow(strMessage) {
 		jFrame.show();
 		
 		// set JTextArea as a Global Parameter for future reference
-		reportContext.setGlobalVariable("jfDebugWindow", jTextArea);
+		reportContext.setGlobalVariable(GLOBAL_VARIABLE_NAME, jTextArea);
 	} else {
 		// Print to Global Reference of the JTextArea
 		currJTextArea.append(strMessage);
