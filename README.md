@@ -12,7 +12,8 @@ Logging continues to be the best way to output variable values and other message
 (Don’t get me wrong, logging should be a part of every report design.)
 
 I discovered a way to create a "Debug Window" in Eclipse that the report can "output" to while running. This is a quick and easy way to display messages inside the Designer using a JavaScript function call. This function will open a “JFrame” inside of Eclipse and print a message to it.
-How it
+
+See full write-up at:
 
 http://lebirtexpert.com/wordpress/2010/03/02/using-a-popup-debug-window/
 
