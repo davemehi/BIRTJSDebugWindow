@@ -8,7 +8,11 @@ importPackage(Packages.javax.swing);
  * to enable/disable the debug window
  ***************************************************/
 blnDisplayDebugWindow = true;
-
+JTEXT_AREA_NUM_OF_ROWS = 20;
+JTEXT_AREA_NUM_OF_COLS = 100;
+JSCROLL_UNIT_INCREMENT = 5;
+JFRAME_WIDTH = 400;
+JFRAME_HEIGHT = 400;
 
 /*****************************************************
  * Name: 		logToDebugWindow
@@ -34,7 +38,7 @@ function logToDebugWindow(strMessage) {
 		var jFrame = new JFrame("Debug Window"); 
 		
 		// Create JTextArea - append message and new-line
-		var jTextArea = new JTextArea(20, 100);
+		var jTextArea = new JTextArea(JTEXT_AREA_NUM_OF_ROWS, JTEXT_AREA_NUM_OF_COLS);
 		jTextArea.append(strMessage);
 		jTextArea.append("\n");					
 		
@@ -45,12 +49,12 @@ function logToDebugWindow(strMessage) {
 		
 		//Create a vert and horiz scroll bar using JScrollPane 
 		var jScrollPane = new JScrollPane(jPanel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		jScrollPane.getHorizontalScrollBar().setUnitIncrement(5);
-		jScrollPane.getVerticalScrollBar().setUnitIncrement(5);
+		jScrollPane.getHorizontalScrollBar().setUnitIncrement(JSCROLL_UNIT_INCREMENT);
+		jScrollPane.getVerticalScrollBar().setUnitIncrement(JSCROLL_UNIT_INCREMENT);
 		
 		//Add JScrollPane into JFrame
 		jFrame.add(jScrollPane);
-		jFrame.setSize(400, 400); 
+		jFrame.setSize(JFRAME_WIDTH, JFRAME_HEIGHT); 
 		jFrame.show();
 		
 		// set JTextArea as a Global Parameter for future reference
